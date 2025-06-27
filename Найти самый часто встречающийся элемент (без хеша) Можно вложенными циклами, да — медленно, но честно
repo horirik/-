@@ -1,0 +1,32 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int [] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = scan.nextInt();
+        }
+        scan.close();
+
+        System.out.println(Arrays.toString(arr));
+
+        int calc = 1;
+        int popularNum = arr[0];
+        for (int i = 0; i < N; i++) {
+            int tempCalc = 1;
+            for (int j = 0; j < N; j++) {
+                if(j != i && arr[i] == arr[j]) {
+                    tempCalc++;
+                }
+            }
+            if (tempCalc > calc) {
+                calc = tempCalc;
+                popularNum = arr[i];
+            }
+        }
+        System.out.println(popularNum);
+    }
+}

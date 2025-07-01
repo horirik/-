@@ -1,0 +1,29 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int K = scan.nextInt();
+        int N = scan.nextInt();
+        int [] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = scan.nextInt();
+        }
+        scan.close();
+
+        System.out.println(Arrays.toString(arr));
+
+        int culc = 0;
+        for (int i = 0; i < N; i++) {
+            int sum = 0;
+            for (int j = i; j < N; j++) {
+                sum += arr[j];
+                if (sum == K) {
+                    culc++
+                }
+            }
+        }
+        System.out.println(culc);
+    }
+}

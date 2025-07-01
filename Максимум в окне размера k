@@ -1,0 +1,33 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int K = scan.nextInt();
+        int N = scan.nextInt();
+        int [] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = scan.nextInt();
+        }
+        scan.close();
+
+        System.out.println(Arrays.toString(arr));
+
+        int[] arrMax = new int[N - K + 1];
+        for (int i = 0; i < arrMax.length; i++) {
+            arrMax[i] = max(arr, i, K);
+        }
+        System.out.println(Arrays.toString(arrMax));
+    }
+
+    static int max (int[] arr, int i, int K) {
+        int max = Integer.MIN_VALUE;
+        for (int j = i; j < i + K; j++) {
+            if (arr[j] > max) {
+                max = arr[j];
+            }
+        }
+        return max;
+    }
+}

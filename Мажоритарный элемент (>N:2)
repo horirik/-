@@ -1,0 +1,29 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int [] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = scan.nextInt();
+        }
+        scan.close();
+
+        System.out.println(Arrays.toString(arr));
+
+        for (int i = 0; i < N; i++) {
+            int culc = 0;
+            for (int x : arr) {
+                if (arr[i] == x) {
+                    culc++;
+                }
+            }
+            if (culc > Math.round(N / 2)) {
+                System.out.println(arr[i]);
+                return;
+            }
+        }
+    }
+}

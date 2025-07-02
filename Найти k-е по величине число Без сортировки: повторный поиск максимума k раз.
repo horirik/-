@@ -1,0 +1,40 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int k = scan.nextInt();
+        int N = scan.nextInt();
+        int [] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = scan.nextInt();
+        }
+        scan.close();
+
+        System.out.println(Arrays.toString(arr));
+
+        
+    }
+
+    public static int find (int[] arr, int k) {
+        int N = arr.length;
+        int[] temp_arr = Arrays.copyOf(arr, N);
+        
+        for (int i = 0; i < k; i++) {
+            int max = temp_arr[0];
+            for (int j = 0; j < N; j++) {
+                if (max < temp_arr[j]) {
+                    max = temp_arr[j];
+                }
+            }
+            if (i == k - 1) return max;
+            for (int j = 0; j < N; j++) {
+                if (max == temp_arr[j]) {
+                    temp_arr[j] = Integer.MIN_VALUE;
+                }
+            }
+        }
+        return Integer.MIN_VALUE;
+    }
+}
